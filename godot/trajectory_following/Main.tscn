@@ -1,0 +1,227 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/wheelchair.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/godot2ros.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/curved_path.gd" type="Script" id=3]
+
+[node name="Main" type="Node" index="0"]
+
+[node name="path" type="Polygon2D" parent="." index="0"]
+
+polygon = PoolVector2Array( 0, 0, 600, 0, 600, 600, 500, 500, 500, 100, 100, 100 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="back_path" type="Polygon2D" parent="path" index="0"]
+
+polygon = PoolVector2Array( 0, 0, 0, 600, 600, 600, 500, 500, 100, 500, 100, 100 )
+uv = PoolVector2Array(  )
+color = Color( 0.0672913, 0.164607, 0.957031, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="turn1" type="Polygon2D" parent="path" index="1"]
+
+position = Vector2( 550, 550 )
+polygon = PoolVector2Array( 0, 0, 150, 0, 150, 150, 0, 150 )
+uv = PoolVector2Array(  )
+color = Color( 0.406967, 0.637572, 0.699219, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( -75, -75 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture", "Transform" ]
+
+[node name="turn2" type="Polygon2D" parent="path" index="2"]
+
+position = Vector2( 550, 50 )
+polygon = PoolVector2Array( 0, 0, 150, 0, 150, 150, 0, 150 )
+uv = PoolVector2Array(  )
+color = Color( 0.406967, 0.637572, 0.699219, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( -75, -75 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture", "Transform" ]
+
+[node name="turn3" type="Polygon2D" parent="path" index="3"]
+
+position = Vector2( 50, 50 )
+polygon = PoolVector2Array( 0, 0, 150, 0, 150, 150, 0, 150 )
+uv = PoolVector2Array(  )
+color = Color( 0.406967, 0.637572, 0.699219, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( -75, -75 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture", "Transform" ]
+
+[node name="turn4" type="Polygon2D" parent="path" index="4"]
+
+position = Vector2( 50, 550 )
+polygon = PoolVector2Array( 0, 0, 150, 0, 150, 150, 0, 150 )
+uv = PoolVector2Array(  )
+color = Color( 0.406967, 0.637572, 0.699219, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( -75, -75 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture", "Transform" ]
+
+[node name="wheelchair" type="Polygon2D" parent="." index="1"]
+
+z_index = 1
+polygon = PoolVector2Array( 0, 0, 80, 0, 80, 80, 40, 100, 0, 80 )
+uv = PoolVector2Array(  )
+color = Color( 0.842583, 0.886719, 0.0796661, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( -40, -50 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Camera2D" type="Camera2D" parent="wheelchair" index="0"]
+
+rotation = 3.14159
+anchor_mode = 1
+rotating = true
+current = true
+zoom = Vector2( 0.5, 0.5 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="direction_label" type="Label" parent="wheelchair/Camera2D" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 150.0
+margin_top = -250.0
+margin_right = 197.0
+margin_bottom = -236.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "forward"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Rect", "custom_fonts" ]
+
+[node name="direction_arrow" type="Polygon2D" parent="wheelchair" index="1"]
+
+position = Vector2( -175, 175 )
+scale = Vector2( 0.8, 0.8 )
+polygon = PoolVector2Array( 20, 0, 20, 100, 50, 80, 50, 120, 0, 150, -50, 120, -50, 80, -20, 100, -20, 0 )
+uv = PoolVector2Array(  )
+color = Color( 0.275978, 0.953125, 0.0595703, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, -75 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="godot2ros" type="Node" parent="." index="2"]
+
+script = ExtResource( 2 )
+
+[node name="curved_path" type="Node2D" parent="." index="3"]
+
+position = Vector2( 550, 550 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="curved_path2" type="Node2D" parent="curved_path" index="0"]
+
+position = Vector2( 1664, 0 )
+rotation = -3.14159
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="finish" type="Polygon2D" parent="curved_path" index="1"]
+
+position = Vector2( 1650, 0 )
+rotation = 0.261799
+polygon = PoolVector2Array( 0, 0, 150, 0, 150, 150, 0, 150 )
+uv = PoolVector2Array(  )
+color = Color( 0.406967, 0.637572, 0.699219, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( -75, -75 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Texture", "Transform" ]
+
+
